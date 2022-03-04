@@ -10,9 +10,9 @@ interface InputProps {
   value?: number
 }
 
-const Input = ({ typeRegister, name, disabled, value }: InputProps) => {
+function Input({ typeRegister, name, disabled, value }: InputProps): JSX.Element {
   return (
-    <>
+    <div className={styles.container}>
       <label htmlFor={name}>{name}</label>
       <input
         id={name}
@@ -20,9 +20,8 @@ const Input = ({ typeRegister, name, disabled, value }: InputProps) => {
         type="text"
         {...typeRegister}
         disabled={disabled}
-        value={value}
-      />
-    </>
+        value={value} />
+    </div>
   )
 }
 

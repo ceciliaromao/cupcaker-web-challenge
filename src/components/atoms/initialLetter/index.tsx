@@ -9,14 +9,13 @@ interface InitialLetterProps {
   text?: string
 }
 
-const InitialLetter = ({ letter, text }: InitialLetterProps) => {
+function InitialLetter({ letter, text }: InitialLetterProps): JSX.Element {
   return (
     <div className={styles.container}>
       <div className={styles.coin}>
         <Typography
           text={letter ? letter : ' '}
-          variant={TypographyVariant.h3}
-        />
+          variant={TypographyVariant.h3} />
       </div>
       <div>
         <Paragraph text={text ? text : 'No description!'} />
