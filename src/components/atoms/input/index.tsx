@@ -12,7 +12,7 @@ interface InputProps {
 
 function Input({ typeRegister, name, disabled, value }: InputProps): JSX.Element {
   return (
-    <div className={styles.container}>
+    <div className={styles.containerInput}>
       <label htmlFor={name}>{name}</label>
       <input
         id={name}

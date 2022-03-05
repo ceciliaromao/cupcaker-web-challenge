@@ -11,7 +11,7 @@ interface InitialLetterProps {
 
 function InitialLetter({ letter, text }: InitialLetterProps): JSX.Element {
   return (
-    <div className={styles.container}>
+    <div className={styles.containerCoin}>
       <div className={styles.coin}>
         <Typography
           text={letter ? letter : ' '}

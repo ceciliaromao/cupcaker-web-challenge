@@ -15,7 +15,7 @@ export interface PanelProps {
 
 const Panel = ({ children, className }: PanelProps): JSX.Element => {
   return (
-    <div className={classNames(styles.container, className)}>{children}</div>
+    <div className={classNames(styles.containerPanel, className)}>{children}</div>
   )
 }
 
