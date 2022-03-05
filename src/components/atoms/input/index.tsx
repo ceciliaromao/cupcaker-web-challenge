@@ -4,23 +4,25 @@ import React from 'react'
 import styles from './styles.module.scss'
 
 interface InputProps {
-  typeRegister: React.ReactNode
+  onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined
   name: string
   disabled?: boolean | undefined
-  value?: number
+  value?: string
+  error?: boolean
 }
 
-function Input({ typeRegister, name, disabled, value }: InputProps): JSX.Element {
+function Input({ onChange, name, disabled, value, error }: InputProps): JSX.Element {
   return (
     <div className={styles.containerInput}>
-      <label htmlFor={name}>{name}</label>
+      <label htmlFor={name}  style={{ color: disabled ? 'var(--color-gray-light)' : 'var(--color-gray-dark)', }}>{name}</label>
       <input
         id={name}
         className={styles.input}
         type="text"
-        {...typeRegister}
+        style={{ borderColor: error ? 'var(--color-alert-red)' : disabled ? 'var(--color-gray-light)' : 'var(--color-gray-dark)', }}
         disabled={disabled}
-        value={value} />
+        value={value}
+        onChange={onChange} />
     </div>
   )
 }
