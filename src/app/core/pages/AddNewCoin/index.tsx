@@ -7,7 +7,7 @@ import * as yup from 'yup'
 
 import styles from './styles.module.scss'
 import {
-  InitialLetter,
+  InitialDescription,
   Input,
   Button,
   Panel,
@@ -67,10 +67,8 @@ export const dataReturn: FormInput[] = []
 
 const coinsStorageReturn = String(localStorage.getItem('coinsReturn'))
 const dataCoinsStorage = JSON.parse(coinsStorageReturn)
+dataCoinsStorage ? dataCoinsStorage.map((i: FormInput) => dataReturn.push(i)) : ''
 
-dataCoinsStorage
-  ? dataCoinsStorage.map((i: FormInput) => dataReturn.push(i))
-  : ''
 const AddNewCoin = (): JSX.Element => {
   const history = useHistory()
   const [quantity, setQuantity] = React.useState('')
@@ -80,9 +78,7 @@ const AddNewCoin = (): JSX.Element => {
     description: string
     price: number
   } | null>(null)
-  const { register, handleSubmit, formState } = useForm({
-    resolver: yupResolver(schema),
-  })
+  const { register, handleSubmit, formState } = useForm({ resolver: yupResolver(schema), })
   const { errors } = formState
 
   const handleOnSubmit = () => {
@@ -92,7 +88,7 @@ const AddNewCoin = (): JSX.Element => {
       description: selectAddCoin?.description,
       price: selectAddCoin?.price,
       quantity,
-      date: `${ date.getFullYear()}-${ date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1 }-${date.getDate() }`,
+      date: `${date.getDate() < 10 ? '0' + date.getDate() : date.getDate()}/${ date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1 }/${date.getFullYear()}`,
     })
     localStorage.setItem('coinsReturn', JSON.stringify(dataReturn))
     history.push('/')
@@ -143,7 +139,7 @@ const AddNewCoin = (): JSX.Element => {
             </div>
           </form>
           <div className={styles.description}>
-            <InitialLetter
+            <InitialDescription
               letter={selectAddCoin?.name.toUpperCase().substr(0, 1)}
               text={selectAddCoin?.description}
             />

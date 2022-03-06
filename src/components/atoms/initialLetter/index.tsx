@@ -9,9 +9,9 @@ interface InitialLetterProps {
   text?: string
 }
 
-function InitialLetter({ letter, text }: InitialLetterProps): JSX.Element {
+function InitialDescription({ letter, text }: InitialLetterProps): JSX.Element {
   return (
-    <div className={styles.containerCoin}>
+    <div className={styles.containerDescription}>
       <div className={styles.coin}>
         <Typography
           text={letter ? letter : ' '}
@@ -24,4 +24,12 @@ function InitialLetter({ letter, text }: InitialLetterProps): JSX.Element {
   )
 }
 
-export { InitialLetter }
+function InitialLetter({ letter }: InitialLetterProps): JSX.Element {
+  return (
+    <div className={styles.coin}>
+      <Typography text={letter ? letter : ' '} variant={TypographyVariant.h3} />
+    </div>
+  )
+}
+
+export { InitialDescription, InitialLetter }

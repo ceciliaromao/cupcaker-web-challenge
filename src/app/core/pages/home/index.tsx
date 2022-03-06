@@ -1,8 +1,8 @@
 import React from 'react'
-
-import { Panel, Typography, TypographyVariant } from 'components/atoms'
-import { EmptyState, EmptyStateType } from 'components/molecules'
-
+import { useHistory } from 'react-router-dom'
+import { Button, Panel, Typography, TypographyVariant } from 'components/atoms'
+import { EmptyState, EmptyStateType, CoinRow } from 'components/molecules'
+import { dataReturn } from '../AddNewCoin'
 import styles from './styles.module.scss'
 
 const Home = (): JSX.Element => {
