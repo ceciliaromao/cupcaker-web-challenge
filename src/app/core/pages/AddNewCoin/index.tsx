@@ -67,7 +67,7 @@ export const dataReturn: FormInput[] = []
 
 const coinsStorageReturn = String(localStorage.getItem('coinsReturn'))
 const dataCoinsStorage = JSON.parse(coinsStorageReturn)
-dataCoinsStorage ? dataCoinsStorage.map((i: FormInput) => dataReturn.push(i)) : ''
+dataCoinsStorage ? dataCoinsStorage.map((el: FormInput) => dataReturn.push(el)) : ''
 
 const AddNewCoin = (): JSX.Element => {
   const history = useHistory()

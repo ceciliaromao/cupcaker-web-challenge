@@ -1,4 +1,4 @@
-.containerCoinList {
+.containerCoinRow {
   width: 90%;
   height: 70px;
   display: flex;
@@ -19,7 +19,6 @@
 
 .price {
   margin: 8px 25px;
-
   display: flex;
   align-items: center;
   justify-content: center;
