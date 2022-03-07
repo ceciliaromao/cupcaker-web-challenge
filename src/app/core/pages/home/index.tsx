@@ -5,8 +5,6 @@ import { EmptyState, EmptyStateType, CoinRow } from 'components/molecules'
 import { dataReturn } from '../AddNewCoin'
 import styles from './styles.module.scss'
 
-console.log(dataReturn)
-
 const Home = (): JSX.Element => {
   const history = useHistory()
   return (
